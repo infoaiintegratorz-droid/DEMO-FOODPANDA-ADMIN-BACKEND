@@ -36,6 +36,7 @@ const allowedOrigins = [
   process.env.CLIENT_URL,
   process.env.FRONTEND_URL,
   process.env.SOCKET_IO_CLIENT_URL,
+  'https://demo-foodpanda-admin-panel.vercel.app',
   'http://localhost:3000',
   'http://localhost:5000',
   'http://127.0.0.1:3000'
@@ -44,9 +45,15 @@ const allowedOrigins = [
 const corsConfig = {
   origin: (origin, callback) => {
     if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
+    const extraOrigins = process.env.ALLOWED_ORIGINS ? process.env.ALLOWED_ORIGINS.split(',').map(s => s.trim()) : [];
+    if (
+      allowedOrigins.includes(origin) ||
+      extraOrigins.includes(origin) ||
+      /\.vercel\.app$/.test(origin)
+    ) {
       return callback(null, true);
     }
+    console.error(`CORS blocked for origin: ${origin}`);
     return callback(new Error(`CORS blocked for origin: ${origin}`));
   },
   credentials: true,
