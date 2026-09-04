@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 
-const API_BASE_URL = process.env.REACT_APP_API_URL;
+import { API_BASE_URL } from '../../../utils/utils';
 
 export default function LogoutButton() {
   const navigate = useNavigate();
