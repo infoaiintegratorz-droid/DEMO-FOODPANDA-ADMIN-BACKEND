@@ -133,7 +133,7 @@ const AdminCreateRiderForm = ({
               value={formData.state || ""}
               onChange={handleChange}
               loading={citiesLoading}
-              error={cities.error}
+              error={citiesError}
             />
 
             {/* City & Work City */}

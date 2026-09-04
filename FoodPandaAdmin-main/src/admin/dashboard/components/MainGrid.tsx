@@ -2,7 +2,6 @@ import React from 'react';
 import { 
   Box, Container, Grid as MuiGrid, Paper, Typography
 } from '@mui/material';
-const Grid: any = MuiGrid;
 import { 
   People, LocalShipping, Storefront, AttachMoney, 
   TrendingUp, CardGiftcard, DeliveryDining, Payments, Restaurant
@@ -21,6 +20,8 @@ import {
 } from 'chart.js';
 
 import { useDashboardData } from '../../api/dashboard';
+
+const Grid: any = MuiGrid;
 
 ChartJS.register(
   ArcElement, Tooltip, Legend, CategoryScale, 

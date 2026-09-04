@@ -1,9 +1,10 @@
 import { alpha, Theme } from '@mui/material/styles';
-type PickersProComponents<T> = Record<string, any>;
 import type { PickerComponents } from '@mui/x-date-pickers/themeAugmentation';
 import { menuItemClasses } from '@mui/material/MenuItem';
 import { pickersDayClasses, yearCalendarClasses } from '@mui/x-date-pickers';
 import { gray, brand } from '../../shared-theme/themePrimitives';
+
+type PickersProComponents<T> = Record<string, any>;
 
 /* eslint-disable import/prefer-default-export */
 export const datePickersCustomizations: PickersProComponents<Theme> & PickerComponents<Theme> = {

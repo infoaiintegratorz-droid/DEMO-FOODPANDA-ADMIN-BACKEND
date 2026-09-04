@@ -1,0 +1,10 @@
+{
+  "buildCommand": "cd FoodPandaAdmin-main && npm install && npm run build",
+  "outputDirectory": "FoodPandaAdmin-main/build",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
