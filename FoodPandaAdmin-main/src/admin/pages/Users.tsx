@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { API_BASE_URL } from '../../utils/utils';
 import './Users.css';
 
 interface User {
@@ -22,7 +23,7 @@ const Users: React.FC = () => {
   const fetchUsers = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('http://localhost:5000/api/data/users', {
+      const response = await axios.get(`${API_BASE_URL}/api/data/users`, {
         headers: { 'x-auth-token': token }
       });
       setUsers(response.data);
@@ -37,7 +38,7 @@ const Users: React.FC = () => {
     if (window.confirm('Are you sure you want to delete this user?')) {
       try {
         const token = localStorage.getItem('token');
-        await axios.delete(`http://localhost:5000/api/data/users/${userId}`, {
+        await axios.delete(`${API_BASE_URL}/api/data/users/${userId}`, {
           headers: { 'x-auth-token': token }
         });
         fetchUsers(); // Refresh list

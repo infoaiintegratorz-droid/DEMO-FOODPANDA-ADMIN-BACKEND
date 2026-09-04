@@ -13,7 +13,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children }) => {
 
   const handleLogout = async () => {
     await authAPI.logout();
-    window.location.href = 'http://localhost:3000/login';
+    window.location.href = '/login';
   };
 
   return (

@@ -39,6 +39,7 @@ import {
   datePickersCustomizations,
   treeViewCustomizations,
 } from '../dashboard/theme/customizations';
+import { API_BASE_URL } from '../../utils/utils';
 
 const xThemeComponents = {
   ...chartsCustomizations,
@@ -84,9 +85,9 @@ const MuiUsers: React.FC = () => {
       }
       
       console.log('🔑 Token from localStorage:', token);
-      console.log('🌐 Making API call to:', 'http://localhost:5000/api/data/users');
+      console.log('🌐 Making API call to:', `${API_BASE_URL}/api/data/users`);
       
-      const response = await fetch('http://localhost:5000/api/data/users', {
+      const response = await fetch(`${API_BASE_URL}/api/data/users`, {
         headers: {
           'x-auth-token': token
         }
